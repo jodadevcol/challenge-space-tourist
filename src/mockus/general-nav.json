@@ -1,0 +1,28 @@
+{
+  "pages": [
+    {
+      "id": "e5ed032e-b2a0-49dd-9238-c379e58da7b7",
+      "name": "home",
+      "url": "/",
+      "label": "Home"
+    },
+    {
+      "id": "92e5318f-71af-4ee9-9ccb-b5bbdb61c137",
+      "name": "destination",
+      "url": "/destination",
+      "label": "Destination"
+    },
+    {
+      "id": "5368b175-ea0d-444d-80ad-bfd6905811be",
+      "name": "crew",
+      "url": "/crew",
+      "label": "Crew"
+    },
+    {
+      "id": "211f2a43-f4a0-41ef-92a8-16d55992818a",
+      "name": "technology",
+      "url": "/technology",
+      "label": "Technology"
+    }
+  ]
+}

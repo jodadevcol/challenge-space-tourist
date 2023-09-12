@@ -1,0 +1,115 @@
+---
+import Logo from "@components/Icons/Logo.astro";
+import Hamburger from "@components/Icons/Hamburger.astro";
+import HamburgerClose from "@components/Icons/HamburgerClose.astro";
+import { pages } from "../mockus/general-nav.json";
+---
+
+<header class="hero-app py-6">
+  <div class="flex items-center justify-between">
+    <a href="/" class="block w-[40px] h-[40px] text-white">
+      <Logo />
+    </a>
+
+    <button
+      class="w-[24px] h-[22px] text-secondary hamburger-hero closed"
+      x-node-button
+    >
+      <Hamburger />
+    </button>
+  </div>
+</header>
+
+<aside class="hidden fixed inset-0 z-0" x-node-menu>
+  <nav
+    class="flex flex-col items-end gap-y-10 w-full max-w-xs h-full ml-auto bg-white/[0.04] backdrop-blur-2xl"
+  >
+    <div class="w-full pt-8 pb-5 px-8">
+      <a
+        href="#"
+        class="block w-5 h-5 ml-auto text-secondary hamburger-close closed"
+        x-node-button
+      >
+        <HamburgerClose />
+      </a>
+    </div>
+    <ul class="relative flex flex-col gap-y-6 w-full max-w-full py-5 px-8">
+      {
+        pages.map((page, index) => {
+          return (
+            <li
+              class="uppercase tracking-[0.17em] text-white font-normal"
+              data-id-menu={page.id}
+            >
+              <a
+                href={page.url}
+                class="flex items-center justify-start gap-x-3"
+              >
+                <span class="font-bold">
+                  {index.toString().padStart(2, "0")}
+                </span>
+                <span>{page.label}</span>
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </nav>
+</aside>
+
+<style is:inline>
+  /* .hamburger-hero.closed {
+    pointer-events: auto;
+  }
+
+  .hamburger-hero.open {
+    pointer-events: none;
+  }
+
+  .hamburger-close.closed {
+    pointer-events: auto;
+  }
+
+  .hamburger-close.open {
+    pointer-events: none;
+  } */
+</style>
+
+<script>
+  import { onSelect, onSelectAll } from "@helpers/dom.ts";
+
+  const NODE_MENU_BTN = {
+    currentPage: () => {
+      return Astro.url.pathname;
+    },
+    stateMenu: false,
+    setStateMenu: ({ target }) => {
+      // target.classList.toggle("closed");
+      // target.classList.toggle("open");
+
+      const newState = !NODE_MENU_BTN.stateMenu;
+      NODE_MENU_BTN.stateMenu = newState;
+
+      const nodeNav = onSelect({
+        query: "[x-node-menu]",
+      }) as HTMLUListElement | null;
+      if (nodeNav) nodeNav.classList.toggle("hidden");
+    },
+  };
+
+  const hanlderHamburgerClick = () => {
+    const buttonHamburger = onSelectAll({ query: "[x-node-button]" });
+    if (!buttonHamburger) return;
+
+    buttonHamburger.forEach((btnHamburger) => {
+      btnHamburger.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        NODE_MENU_BTN.setStateMenu(event);
+      });
+    });
+  };
+
+  hanlderHamburgerClick();
+</script>
