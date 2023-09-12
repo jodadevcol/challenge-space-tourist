@@ -1,16 +1,43 @@
 ---
-
+import BaseLayout from "@layouts/BaseLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Home">
+  <div
+    slot="bg-page"
+    class="fixed inset-0 -z-10 bg-primary pointer-events-none"
+  >
+    <div
+      class="h-full after:block after:h-full after:bg-home after:bg-bottom after:bg-cover"
+    >
+    </div>
+  </div>
+
+  <section class="flex items-center justify-center h-full py-10">
+    <article class="max-w-full text-center text-secondary">
+      <h1 class="mb-4 uppercase tracking-[0.17em]">
+        So, you want to travel to
+        <span class="block font-serif text-[80px] leading-normal text-white"
+          >Space</span
+        >
+      </h1>
+
+      <div class="max-w-[360px] sm:max-w-[90%] mx-auto">
+        <p class="leading-normal">
+          Let’s face it; if you want to go to space, you might as well genuinely
+          go to outer space and not hover kind of on the edge of it. Well sit
+          back, and relax because we’ll give you a truly out of this world
+          experience!
+        </p>
+      </div>
+
+      <footer class="flex items-center justify-center mt-20">
+        <a
+          href=""
+          class="flex items-center justify-center w-full max-w-[150px] max-h-[150px] aspect-square p-5 font-serif text-xl text-primary uppercase rounded-[50%] bg-white"
+          >Explore</a
+        >
+      </footer>
+    </article>
+  </section>
+</BaseLayout>
