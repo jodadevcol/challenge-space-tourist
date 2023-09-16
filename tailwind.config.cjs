@@ -6,7 +6,8 @@ module.exports = {
 	theme: {
 		extend: {
 			backgroundImage: {
-				home: "url(/backgrounds/mobile-home-bg.jpg)"
+				home: "url(/backgrounds/mobile-home-bg.jpg)",
+				destination: "url(/backgrounds/mobile-destination-bg.jpg)",
 			},
 			colors: {
 				"primary": "#0b0d17",
@@ -15,6 +16,11 @@ module.exports = {
 			fontFamily: {
 				sans: ['Barlow Condensed', 'sans-serif', ...defaultTheme.fontFamily.sans],
 				serif: ['Bellefair', 'serif', ...defaultTheme.fontFamily.serif],
+			},
+			letterSpacing: {
+				"nav": "0.17em",
+				"heading": "0.40em",
+				"subheading": "0.24em",
 			}
 		},
 	},

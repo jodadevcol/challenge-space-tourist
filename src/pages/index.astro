@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import Heading from "@components/Heading/Heading.astro";
 ---
 
 <BaseLayout title="Home">
@@ -15,12 +16,9 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
   <section class="flex items-center justify-center h-full py-10">
     <article class="max-w-full text-center text-secondary">
-      <h1 class="mb-4 uppercase tracking-[0.17em]">
+      <Heading internalPage={false} featuredText="Space">
         So, you want to travel to
-        <span class="block font-serif text-[80px] leading-normal text-white"
-          >Space</span
-        >
-      </h1>
+      </Heading>
 
       <div class="max-w-[360px] sm:max-w-[90%] mx-auto">
         <p class="leading-normal">
