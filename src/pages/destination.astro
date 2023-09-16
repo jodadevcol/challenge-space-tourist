@@ -1,0 +1,25 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Heading from "@components/Heading/Heading.astro";
+---
+
+<BaseLayout title="Destination">
+  <div
+    slot="bg-page"
+    class="fixed inset-0 -z-10 bg-primary pointer-events-none"
+  >
+    <div
+      class="h-full after:block after:h-full after:bg-destination after:bg-bottom after:bg-cover"
+    >
+    </div>
+  </div>
+
+  <section class="flex items-start justify-center h-full py-10">
+    <article class="max-w-full text-center text-secondary">
+      <Heading internalPage={true}>
+        <span class="mr-3 font-bold text-white opacity-25">01</span> Pick your
+        destination
+      </Heading>
+    </article>
+  </section>
+</BaseLayout>
